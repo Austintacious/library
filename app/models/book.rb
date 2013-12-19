@@ -3,6 +3,7 @@ class Book < ActiveRecord::Base
   validates_presence_of :author
   validates_numericality_of :rating, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 100, allow_blank: true
   has_many :checkouts
+  has_many :categorizations, through: :categories
 
   class << self
     def seed

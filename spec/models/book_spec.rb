@@ -8,8 +8,13 @@ describe Book do
   it {should have_valid(:title).when('a title')}
   it {should_not have_valid(:title).when(*blanks)}
 
+  it {should validate_presence_of :author}
+
   it {should have_valid(:rating).when(*valid_ratings)}
   it {should_not have_valid(:rating).when(*invalid_ratings)}
+
+  it {should have_many :checkouts}
+  it {should have_many :categorizations}
 
   it 'should seed properly' do
     expect(Book.seed).to be_true
