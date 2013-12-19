@@ -10,4 +10,9 @@ describe Book do
 
   it {should have_valid(:rating).when(*valid_ratings)}
   it {should_not have_valid(:rating).when(*invalid_ratings)}
+
+  it 'should seed properly' do
+    expect(Book.seed).to be_true
+  end
+
 end
